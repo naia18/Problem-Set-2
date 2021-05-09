@@ -48,10 +48,12 @@ theta = [0.75, 0.75]
 obj = theta -> -mean(logL(theta, y, x))   # Define the objective function 
 theta_trial = [1.0,0.5]                   # Define a trial value for the parameter to estimate
 thetahat, junk, junk = fminunc(obj, theta_trial)
+errors = (theta.-thetahat)./theta
 
 # results
 println("the true parameters: ", theta)
 println("the ML estimates: ", thetahat)
+println("the error of estimation: ", errors)
 
 # New sample size (larger)
 n = 10000

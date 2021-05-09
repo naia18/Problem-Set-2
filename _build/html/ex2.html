@@ -321,15 +321,15 @@
 <p>with <span class="math notranslate nohighlight">\(X\)</span> an <span class="math notranslate nohighlight">\(n\times k\)</span> matrix of data. In our case, <span class="math notranslate nohighlight">\(X=[1\,\, y_{t-1}\,\, x_t]\)</span>: a matrix of size <span class="math notranslate nohighlight">\(n\times 3\)</span>. The assumption that the instruments <span class="math notranslate nohighlight">\(Z\)</span> are exogenous can be expressed as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
+\begin{gather*}
      \mathbb{E}[z_t \nu_t]=0 \\
      \mathbb{E}[z_tx_t']\quad \text{has rank k} \label{eq14}\tag{14} 
-\end{equation}
+\end{gather*}
 \end{split}\]</div>
 <p>These are the <strong>moment conditions</strong>. The <span class="math notranslate nohighlight">\(l\)</span> instruments give us a set of <span class="math notranslate nohighlight">\(l\)</span> moments,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
+\begin{gather*}
      g_t(\theta)=Z_t'\nu_t=Z_t'(y_t-\alpha-\rho y_{t-1}-\beta x_t)\\
      g_t(\theta)=\begin{pmatrix}
                     (y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
@@ -337,7 +337,7 @@
                     x_{t-1}(y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
                     x_{t-2}(y_t-\alpha-\rho y_{t-1}-\beta x_t)
                     \end{pmatrix} \label{eq15}\tag{15} 
-\end{equation}
+\end{gather*}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(g_t\)</span> is <span class="math notranslate nohighlight">\(l\times 1\)</span> (<span class="math notranslate nohighlight">\(4\times 1\)</span> here). The exogeneity of the instruments means that there are <span class="math notranslate nohighlight">\(l\)</span> moment conditions - orthogonality conditions, that will be satisfied at the true value of <span class="math notranslate nohighlight">\(\theta\)</span>, which is <span class="math notranslate nohighlight">\(\theta_0\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -349,7 +349,7 @@
 <p>Each of the <span class="math notranslate nohighlight">\(l\)</span> moment equations corresponds to a sample moment, and we write these <span class="math notranslate nohighlight">\(l\)</span> sample moments as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
+\begin{gather*}
      \boxed{\bar{g}(\theta)=\frac{1}{n} \sum_{t=1}^{n}g_t(\theta)=
      \begin{pmatrix}
                     \frac{1}{n} \sum_{t=1}^{n}(y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
@@ -358,7 +358,7 @@
                     \frac{1}{n} \sum_{t=1}^{n}x_{t-2}(y_t-\alpha-\rho y_{t-1}-\beta x_t)
                     \end{pmatrix}
                     =\frac{1}{n} \sum_{t=1}^{n}Z_t'(y_t-\alpha-\rho y_{t-1}-\beta x_t)=\frac{1}{n}Z'\nu} \label{eq17}\tag{17} 
-\end{equation}
+\end{gather*}
 \end{split}\]</div>
 <p>Now, the intuition behind GMM is to choose an estimator for <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> that sets <strong>these <span class="math notranslate nohighlight">\(l=4\)</span> sample moments</strong> as close to zero as possible.</p>
 <p>But, what if the  equation is overidentified, as it is here?</p>
@@ -502,7 +502,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[0.136205, 0.884571, 0.960155]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[0.137289, 0.884911, 0.957164]</td></tr></tbody></table></div></div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[-0.0397047, 0.872988, 0.948493]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[-0.0394643, 0.873117, 0.948445]</td></tr></tbody></table></div></div>
 </div>
 <p>In this example, both the first estimated <span class="math notranslate nohighlight">\(\theta\)</span> and the second round one are quite close, which means that weighing all the moments equally was satisfactory. Thus, for the sake of efficiency in this particular problem, we could stay with the first estimation.</p>
 </div>
