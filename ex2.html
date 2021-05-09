@@ -233,13 +233,11 @@
 <h1>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># MAIN LIBRARIES to use</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># MAIN LIBRARIES to use in Ex. 2</span>
 <span class="k">using</span> <span class="n">Optim</span>
 <span class="k">using</span> <span class="n">Statistics</span>
-<span class="k">using</span> <span class="n">ForwardDiff</span>
 <span class="k">using</span> <span class="n">Plots</span>
 <span class="k">using</span> <span class="n">LinearAlgebra</span>
-<span class="k">using</span> <span class="n">CSV</span>
 <span class="k">using</span> <span class="n">DataFrames</span>
 <span class="k">using</span> <span class="n">StatsFuns</span>
 </pre></div>
@@ -412,11 +410,9 @@
     <span class="n">obj</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="n">m</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span><span class="o">&#39;</span><span class="n">weight</span><span class="o">*</span><span class="n">m</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
     <span class="c"># Minimization</span>
     <span class="n">thetahat</span><span class="p">,</span> <span class="n">objvalue</span><span class="p">,</span> <span class="n">converged</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
-    <span class="c"># Derivative of average moments</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="p">(</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">vec</span><span class="p">(</span><span class="n">thetahat</span><span class="p">)))</span><span class="o">&#39;</span> 
     <span class="c"># moment contributions at estimate</span>
     <span class="n">mc_thetahat</span> <span class="o">=</span> <span class="n">moments</span><span class="p">(</span><span class="n">thetahat</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">thetahat</span><span class="p">,</span> <span class="n">objvalue</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">mc_thetahat</span><span class="p">,</span> <span class="n">converged</span>
+    <span class="k">return</span> <span class="n">thetahat</span><span class="p">,</span> <span class="n">objvalue</span><span class="p">,</span> <span class="n">mc_thetahat</span><span class="p">,</span> <span class="n">converged</span>
 <span class="k">end</span>
 
 <span class="c"># Unconstrained minimization problem    </span>
@@ -484,12 +480,12 @@
 <span class="n">moments</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GIVmoments</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>  <span class="c"># Generate the moments function to send as an argument for the gmm()</span>
 
 <span class="c"># -------------- FIRST ESTIMATION ---------------</span>
-<span class="n">thetahat1</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">gmm</span><span class="p">(</span><span class="n">moments</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">I</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
+<span class="n">thetahat1</span><span class="p">,</span> <span class="n">objval</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">converged</span> <span class="o">=</span> <span class="n">gmm</span><span class="p">(</span><span class="n">moments</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">I</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">cov</span><span class="p">(</span><span class="n">ms</span><span class="p">));</span> 
 <span class="c"># use  thetahat1 to re-estimate by defining a specific weighting matrix</span>
 
 <span class="c"># -------------- SECOND ESTIMATION --------------</span>
-<span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">gmm</span><span class="p">(</span><span class="n">moments</span><span class="p">,</span> <span class="n">thetahat1</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">W</span><span class="p">);</span>
+<span class="n">thetahat</span><span class="p">,</span> <span class="n">objval</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">converged</span> <span class="o">=</span> <span class="n">gmm</span><span class="p">(</span><span class="n">moments</span><span class="p">,</span> <span class="n">thetahat1</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">W</span><span class="p">);</span>
 
 <span class="c"># Compare the estimators</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">Thetas</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;True value θ_0&quot;</span><span class="p">,</span> <span class="s">&quot;First estimation θ1_hat&quot;</span><span class="p">,</span> <span class="s">&quot;Second estimation θ2_hat&quot;</span><span class="p">],</span> <span class="n">Values</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta</span><span class="p">,</span> <span class="n">thetahat1</span><span class="p">,</span> <span class="n">thetahat</span><span class="p">])</span>
@@ -497,7 +493,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[0.0113777, 0.869204, 0.983917]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[0.0120307, 0.869748, 0.983029]</td></tr></tbody></table></div></div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[0.0126224, 0.930377, 0.930368]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[0.00881296, 0.928514, 0.928457]</td></tr></tbody></table></div></div>
 </div>
 <p>In this example, both the first estimated <span class="math notranslate nohighlight">\(\theta\)</span> and the second round one are quite close, which means that weighing all the moments equally was satisfactory. Thus, for the sake of efficiency in this particular problem, we could stay with the first estimation.</p>
 </div>
