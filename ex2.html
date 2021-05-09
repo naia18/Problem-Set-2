@@ -382,11 +382,6 @@
 </div>
 <div class="section" id="b-compute-hat-theta-using-two-step-gmm">
 <h2>(2. b) Compute <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> using two step GMM.<a class="headerlink" href="#b-compute-hat-theta-using-two-step-gmm" title="Permalink to this headline">¶</a></h2>
-<p>The two step GMM estimator:</p>
-<ol class="simple">
-<li><p>We will first set the weight matrix to some positive definite matrix: <span class="math notranslate nohighlight">\(W=I\)</span>. Obtain the GMM estimator that minimizes <span class="math notranslate nohighlight">\(Q_n(\theta)=\bar{g(\theta)}'W\bar{g(\theta)}\)</span>.</p></li>
-<li><p>Based on this initial estimate <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>, we compute its moment contributions <span class="math notranslate nohighlight">\(g_t(\hat{\theta})\)</span>. Compute an estimate of <span class="math notranslate nohighlight">\(\Omega_{\infty}\)</span> based on the moment contributions, say <span class="math notranslate nohighlight">\(\hat{\Omega}^{-1}\)</span>. The exact way to do this will depend upon the assumptions of the model. Given the estimate, compute the efficient GMM estimator which minimizes: <span class="math notranslate nohighlight">\(Q_n(\theta)=\bar{g(\theta)}'\hat{\Omega}^{-1}\bar{g(\theta)}\)</span></p></li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># ------------------- MAIN FUNCTIONS ------------------------- </span>
@@ -502,7 +497,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[-0.0940509, 0.86179, 0.93182]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[-0.0924333, 0.862745, 0.925847]</td></tr></tbody></table></div></div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[0.0113777, 0.869204, 0.983917]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[0.0120307, 0.869748, 0.983029]</td></tr></tbody></table></div></div>
 </div>
 <p>In this example, both the first estimated <span class="math notranslate nohighlight">\(\theta\)</span> and the second round one are quite close, which means that weighing all the moments equally was satisfactory. Thus, for the sake of efficiency in this particular problem, we could stay with the first estimation.</p>
 </div>
