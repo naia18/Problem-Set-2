@@ -366,25 +366,15 @@
 <span class="n">obj</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="n">mean</span><span class="p">(</span><span class="n">logL</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>   <span class="c"># Define the objective function </span>
 <span class="n">theta_trial</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>                   <span class="c"># Define a trial value for the parameter to estimate</span>
 <span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">)</span>
-<span class="n">errors</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta</span><span class="o">.-</span><span class="n">thetahat</span><span class="p">)</span><span class="o">./</span><span class="n">theta</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">abs</span><span class="o">.</span><span class="p">((</span><span class="n">theta</span><span class="o">.-</span><span class="n">thetahat</span><span class="p">)</span><span class="o">./</span><span class="n">theta</span><span class="p">)</span>
 
 <span class="c"># results</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;the true parameters: &quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;the ML estimates: &quot;</span><span class="p">,</span> <span class="n">thetahat</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;the error of estimation: &quot;</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">Parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Theta1&quot;</span><span class="p">,</span> <span class="s">&quot;Theta2&quot;</span><span class="p">],</span> <span class="n">True_Parameters</span> <span class="o">=</span> <span class="n">theta</span><span class="p">,</span> <span class="n">ML_estimates</span><span class="o">=</span><span class="n">thetahat</span><span class="p">,</span> <span class="n">Estimation_errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the true parameters: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.75, 0.75]
-the ML estimates: [0.7145324150871808, 0.6315728199016203]
-the error of estimation: [0.047290113217092276, 0.1579029067978396]
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.589673</td><td>0.213769</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.805368</td><td>0.0738239</td></tr></tbody></table></div></div>
 </div>
 </div>
 <div class="section" id="b-empirically-prove-consistency-of-hat-theta-by-increasing-the-number-of-n-in-dgp-and-re-estimate">
@@ -401,22 +391,15 @@ the error of estimation: [0.047290113217092276, 0.1579029067978396]
 <span class="n">obj</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="n">mean</span><span class="p">(</span><span class="n">logL</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>   <span class="c"># Define the objective function </span>
 <span class="n">theta_trial</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>                   <span class="c"># Define a trial value for the parameter to estimate</span>
 <span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">)</span>
-<span class="n">errors</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta</span><span class="o">.-</span><span class="n">thetahat</span><span class="p">)</span><span class="o">./</span><span class="n">theta</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">abs</span><span class="o">.</span><span class="p">((</span><span class="n">theta</span><span class="o">.-</span><span class="n">thetahat</span><span class="p">)</span><span class="o">./</span><span class="n">theta</span><span class="p">)</span>
 
 <span class="c"># results</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;the true parameters: &quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;the ML estimates: &quot;</span><span class="p">,</span> <span class="n">thetahat</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;the error of estimation: &quot;</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">Parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Theta1&quot;</span><span class="p">,</span> <span class="s">&quot;Theta2&quot;</span><span class="p">],</span> <span class="n">True_Parameters</span> <span class="o">=</span> <span class="n">theta</span><span class="p">,</span> <span class="n">ML_estimates</span><span class="o">=</span><span class="n">thetahat</span><span class="p">,</span> <span class="n">Estimation_errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the true parameters: [0.75, 0.75]
-the ML estimates: [0.7282458982437631, 0.7875604919150628]
-the error of estimation: [0.02900546900831591, -0.050080655886750446]
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.733295</td><td>0.0222736</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.757391</td><td>0.0098542</td></tr></tbody></table></div></div>
 </div>
 </div>
 <div class="section" id="c-empirically-prove-asymptotic-normality-of-hat-theta-by-repeatedly-generating-data">
