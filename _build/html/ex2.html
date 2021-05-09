@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercise 2 &#8212; Econometrics II - Problem Set 2</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/togglebutton.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exercise 3" href="ex3.html" />
+    <link rel="prev" title="Exercise 1" href="ex1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logi.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Econometrics II - Problem Set 2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ex1.html">
+   Exercise 1
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exercise 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ex3.html">
+   Exercise 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ex2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ex2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-orthogonality-conditions">
+   (2.a) Orthogonality conditions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identification">
+     Identification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-compute-hat-theta-using-two-step-gmm">
+   (2. b) Compute
+   <span class="math notranslate nohighlight">
+    \(\hat{\theta}\)
+   </span>
+   using two step GMM.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-brief-description-of-what-the-provided-code-does">
+     A brief description of what the provided code does
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exercise-2">
+<h1>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># MAIN LIBRARIES to use</span>
+<span class="k">using</span> <span class="n">Optim</span>
+<span class="k">using</span> <span class="n">Statistics</span>
+<span class="k">using</span> <span class="n">ForwardDiff</span>
+<span class="k">using</span> <span class="n">Plots</span>
+<span class="k">using</span> <span class="n">LinearAlgebra</span>
+<span class="k">using</span> <span class="n">CSV</span>
+<span class="k">using</span> <span class="n">DataFrames</span>
+<span class="k">using</span> <span class="n">StatsFuns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have the following model:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+    y_t^{*}=\alpha+\rho y_{t-1}^{*}+\beta x_t + \epsilon_t \label{eq10}\tag{10} \\
+    y_t = y_t^{*}+\upsilon_t
+\end{equation}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_{t}\)</span> and <span class="math notranslate nohighlight">\(\upsilon_{t}\)</span> are independent Gaussian white noise errors. Suppose that <span class="math notranslate nohighlight">\(y_{t}^{*}\)</span> is not observed, and instead we observe <span class="math notranslate nohighlight">\(y_{t}\)</span>. We estimate the equation</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    y_t=\alpha+\rho y_{t-1}+\beta x_t + \nu_t \label{eq11}\tag{11}
+\end{equation}
+\]</div>
+<p>which will yield a biased and inconsistent estimator, since the errors are not exogenous anymore <span class="math notranslate nohighlight">\(\mathbb{E}[x_t\nu_t]\neq 0\)</span>.</p>
+<p>We’re told to consider as instruments to deal with this endogeneity: <span class="math notranslate nohighlight">\(Z=[1\,\, x_t\,\, x_{t-1}\,\, x_{t-2}]\)</span>, lags of <span class="math notranslate nohighlight">\(x_t\)</span> which are correlated with <span class="math notranslate nohighlight">\(y_{t-1}\)</span> as long as <span class="math notranslate nohighlight">\(\beta\neq 0\)</span>. By assumption, <span class="math notranslate nohighlight">\(\mathbb{E}[x_{t-s}\nu_t]=0\quad\forall s\geq0\)</span>. The functions that we’re given to define these lags:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">lag</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="n">p</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+	<span class="n">n</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="n">lagged_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">ones</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">);</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="o">:</span><span class="p">]]</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="n">lag</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span><span class="n">p</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+	<span class="n">lagged_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">ones</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="p">]]</span>
+<span class="k">end</span>	 
+
+
+<span class="k">function</span>  <span class="n">lags</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="n">p</span><span class="p">)</span>
+	<span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="n">lagged_x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">eltype</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="n">k</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">p</span>
+		<span class="n">lagged_x</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">k</span><span class="o">-</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">:</span><span class="n">i</span><span class="o">*</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">lag</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+	<span class="k">end</span>
+    <span class="k">return</span> <span class="n">lagged_x</span>
+<span class="k">end</span>	
+
+<span class="k">function</span>  <span class="n">lags</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span><span class="n">p</span><span class="p">)</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+	<span class="n">lagged_x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">eltype</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">p</span>
+		<span class="n">lagged_x</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lag</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+	<span class="k">end</span>
+    <span class="k">return</span> <span class="n">lagged_x</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lags (generic function with 2 methods)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-orthogonality-conditions">
+<h2>(2.a) Orthogonality conditions<a class="headerlink" href="#a-orthogonality-conditions" title="Permalink to this headline">¶</a></h2>
+<p>Before we had to deal with a particular type of M-Estimator, the ML. In this second exercise, we are treating the other: the GMM estimator. This latter, as opposed to the ML, does not require any knowledge about the distribution function of our data. Instead, its objective function is described as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+     Q_n(\theta)=-\frac{1}{2}g_n(\theta)\,' \hat{W}\, g_n(\theta),\quad g_n(\theta)\equiv \frac{1}{n}\sum_{i=1}^{n}g(x_i;\theta) \label{eq12}\tag{12}
+\end{equation}
+\]</div>
+<p>Enclosed in the function <span class="math notranslate nohighlight">\(g(x_i;\theta)\)</span> are some orthogonality conditions that we will try to minimize. In fact, we have seen that endogenous regressors yield biased and inconsistent estimates of the parameters of our models - a linear model, in this case. We will call <em>instrument</em> to the estimators that exogenize our endogenous regressors by exploting the variability of exogenous variables. Let’s consider the standard linear model:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+     y = X\theta + \nu \label{eq13}\tag{13}
+\end{equation}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(X\)</span> an <span class="math notranslate nohighlight">\(n\times k\)</span> matrix of data. In our case, <span class="math notranslate nohighlight">\(X=[1\,\, y_{t-1}\,\, x_t]\)</span>: a matrix of size <span class="math notranslate nohighlight">\(n\times 3\)</span>. The assumption that the instruments <span class="math notranslate nohighlight">\(Z\)</span> are exogenous can be expressed as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+     \mathbb{E}[z_t \nu_t]=0 \\
+     \mathbb{E}[z_tx_t']\quad \text{has rank k} \label{eq14}\tag{14} 
+\end{equation}
+\end{split}\]</div>
+<p>These are the <strong>moment conditions</strong>. The <span class="math notranslate nohighlight">\(l\)</span> instruments give us a set of <span class="math notranslate nohighlight">\(l\)</span> moments,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+     g_t(\theta)=Z_t'\nu_t=Z_t'(y_t-\alpha-\rho y_{t-1}-\beta x_t)\\
+     g_t(\theta)=\begin{pmatrix}
+                    (y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
+                    x_t(y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
+                    x_{t-1}(y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
+                    x_{t-2}(y_t-\alpha-\rho y_{t-1}-\beta x_t)
+                    \end{pmatrix} \label{eq15}\tag{15} 
+\end{equation}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(g_t\)</span> is <span class="math notranslate nohighlight">\(l\times 1\)</span> (<span class="math notranslate nohighlight">\(4\times 1\)</span> here). The exogeneity of the instruments means that there are <span class="math notranslate nohighlight">\(l\)</span> moment conditions - orthogonality conditions, that will be satisfied at the true value of <span class="math notranslate nohighlight">\(\theta\)</span>, which is <span class="math notranslate nohighlight">\(\theta_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+     \boxed{\mathbb{E}[g_t(\theta_0)]=\mathbb{E}[Z_t'(y_t-X_t\theta_0)]=0} \label{eq16}\tag{16} 
+\end{equation}
+\]</div>
+<p>Each of the <span class="math notranslate nohighlight">\(l\)</span> moment equations corresponds to a sample moment, and we write these <span class="math notranslate nohighlight">\(l\)</span> sample moments as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+     \boxed{\bar{g}(\theta)=\frac{1}{n} \sum_{t=1}^{n}g_t(\theta)=
+     \begin{pmatrix}
+                    \frac{1}{n} \sum_{t=1}^{n}(y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
+                   \frac{1}{n} \sum_{t=1}^{n} x_t(y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
+                    \frac{1}{n} \sum_{t=1}^{n}x_{t-1}(y_t-\alpha-\rho y_{t-1}-\beta x_t) \\
+                    \frac{1}{n} \sum_{t=1}^{n}x_{t-2}(y_t-\alpha-\rho y_{t-1}-\beta x_t)
+                    \end{pmatrix}
+                    =\frac{1}{n} \sum_{t=1}^{n}Z_t'(y_t-\alpha-\rho y_{t-1}-\beta x_t)=\frac{1}{n}Z'\nu} \label{eq17}\tag{17} 
+\end{equation}
+\end{split}\]</div>
+<p>Now, the intuition behind GMM is to choose an estimator for <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> that sets <strong>these <span class="math notranslate nohighlight">\(l=4\)</span> sample moments</strong> as close to zero as possible.</p>
+<p>But, what if the  equation is overidentified, as it is here?</p>
+<div class="section" id="identification">
+<h3>Identification<a class="headerlink" href="#identification" title="Permalink to this headline">¶</a></h3>
+<p>If the equation is <strong>overidentified, as in our case,</strong>, so that <span class="math notranslate nohighlight">\(l &gt; k\)</span>, then we have more equations than we do unknowns, and in general it will not be possible to find a <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> that will set  all <span class="math notranslate nohighlight">\(l\)</span> sample  moment conditions to exactly zero. In this case, we take an <span class="math notranslate nohighlight">\(l\times l\)</span> weighting matrix <span class="math notranslate nohighlight">\(W\)</span> and use it to construct a quadratic form in the moment conditions.This gives us the GMM objective function:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+     Q_n(\theta)= n\bar{g}(\theta)'W\bar{g}(\theta) \label{eq18}\tag{18} 
+\end{equation}
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\bar{g(\theta)}\)</span> is <span class="math notranslate nohighlight">\(m_n(\theta)\)</span> on our course notes. I only use <span class="math notranslate nohighlight">\(g\)</span> not to confuse it with the <span class="math notranslate nohighlight">\(m\)</span> in the M-Estimators.  A GMM estimator for <span class="math notranslate nohighlight">\(\theta\)</span> is the <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> that minimizes <span class="math notranslate nohighlight">\(Q_n(\theta)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+     \frac{\partial Q_n(\theta)}{\partial \theta}=0 \label{eq19}\tag{19} 
+\end{equation}
+\]</div>
+</div>
+</div>
+<div class="section" id="b-compute-hat-theta-using-two-step-gmm">
+<h2>(2. b) Compute <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> using two step GMM.<a class="headerlink" href="#b-compute-hat-theta-using-two-step-gmm" title="Permalink to this headline">¶</a></h2>
+<p>The two step GMM estimator:</p>
+<ol class="simple">
+<li><p>We will first set the weight matrix to some positive definite matrix: <span class="math notranslate nohighlight">\(W=I\)</span>. Obtain the GMM estimator that minimizes <span class="math notranslate nohighlight">\(Q_n(\theta)=\bar{g(\theta)}'W\bar{g(\theta)}\)</span>.</p></li>
+<li><p>Based on this initial estimate <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>, we compute its moment contributions <span class="math notranslate nohighlight">\(g_t(\hat{\theta})\)</span>. Compute an estimate of <span class="math notranslate nohighlight">\(\Omega_{\infty}\)</span> based on the moment contributions, say <span class="math notranslate nohighlight">\(\hat{\Omega}^{-1}\)</span>. The exact way to do this will depend upon the assumptions of the model. Given the estimate, compute the efficient GMM estimator which minimizes: <span class="math notranslate nohighlight">\(Q_n(\theta)=\bar{g(\theta)}'\hat{\Omega}^{-1}\bar{g(\theta)}\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># ------------------- MAIN FUNCTIONS ------------------------- </span>
+
+<span class="c"># what is the best moment to use???</span>
+
+<span class="c"># moment condition</span>
+<span class="k">function</span> <span class="n">GIVmoments</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span> <span class="n">lags</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="k">end</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="c"># get rid of missings</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ylag</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">xlag</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">xlag2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">ylag</span> <span class="n">x</span><span class="p">]</span>
+    <span class="nb">e</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">X</span><span class="o">*</span><span class="n">theta</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="p">[</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">x</span> <span class="n">xlag</span> <span class="n">xlag2</span><span class="p">]</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">e</span><span class="o">.*</span><span class="n">Z</span>
+    <span class="k">return</span> <span class="n">m</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="n">gmm</span><span class="p">(</span><span class="n">moments</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+    <span class="c"># average moments</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="n">vec</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">moments</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">data</span><span class="p">),</span><span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c"># 1Xg   </span>
+    <span class="c"># GMM objective function</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="p">((</span><span class="n">m</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span><span class="o">&#39;</span><span class="n">weight</span><span class="o">*</span><span class="n">m</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
+    <span class="c"># Minimization</span>
+    <span class="n">thetahat</span><span class="p">,</span> <span class="n">objvalue</span><span class="p">,</span> <span class="n">converged</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+    <span class="c"># Derivative of average moments</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="p">(</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">vec</span><span class="p">(</span><span class="n">thetahat</span><span class="p">)))</span><span class="o">&#39;</span> 
+    <span class="c"># moment contributions at estimate</span>
+    <span class="n">mc_thetahat</span> <span class="o">=</span> <span class="n">moments</span><span class="p">(</span><span class="n">thetahat</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">thetahat</span><span class="p">,</span> <span class="n">objvalue</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">mc_thetahat</span><span class="p">,</span> <span class="n">converged</span>
+<span class="k">end</span>
+
+<span class="c"># Unconstrained minimization problem    </span>
+<span class="k">function</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">x</span><span class="p">;</span> <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-08</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Optim</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">LBFGS</span><span class="p">(),</span> 
+                            <span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span>
+                            <span class="n">g_tol</span> <span class="o">=</span> <span class="n">tol</span><span class="p">,</span>
+                            <span class="n">x_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+                            <span class="n">f_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">results</span><span class="o">.</span><span class="n">minimizer</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">minimum</span><span class="p">,</span> <span class="n">Optim</span><span class="o">.</span><span class="n">converged</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="c">#xopt, objvalue, flag = fmincon(obj, x, tol=tol)</span>
+    <span class="c">#return xopt, objvalue, flag</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fminunc (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-brief-description-of-what-the-provided-code-does">
+<h3>A brief description of what the provided code does<a class="headerlink" href="#a-brief-description-of-what-the-provided-code-does" title="Permalink to this headline">¶</a></h3>
+<p>First we generate data for some particular values of the parameters: <span class="math notranslate nohighlight">\(\theta=[\alpha_0,\rho_0,\beta_0]=[0.0,0.9,1.0]\)</span>. The data will be generated using the lag functions defined above. In this part of the code, the main aim is to generate the dependent variable that <strong>we do not observe</strong>, which is <span class="math notranslate nohighlight">\(y_t^{*}=\alpha+\rho y_{t-1}^{*}+\beta x_t+\epsilon_t\)</span>. We are assuming that both the exogenous regressor and the error term are normally distributed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># ------------------- SET UP ------------------------- </span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># an exogenous regressor</span>
+<span class="nb">e</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c"># the error term</span>
+<span class="n">ystar</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">alpha_0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">rho_0</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">beta_0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="n">alpha_0</span> <span class="n">rho_0</span> <span class="n">beta_0</span><span class="p">]</span>
+<span class="c"># generate the unobserved dependent variable</span>
+<span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">2</span><span class="o">:</span><span class="n">n</span>
+  <span class="n">ystar</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">theta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">ystar</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">theta</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="nb">e</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once <span class="math notranslate nohighlight">\(y_t^{*}\)</span> is defined, we construct the observed variable <span class="math notranslate nohighlight">\(y_t\)</span>, assuming once again that the error <span class="math notranslate nohighlight">\(\upsilon_t\)</span> is normally distributed with a variance of <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>Then, we construct a matrix called <em>data</em> which will hold the values of <span class="math notranslate nohighlight">\(y_t\)</span>, <span class="math notranslate nohighlight">\(y_{t-1}\)</span> and <span class="math notranslate nohighlight">\(x_t\)</span> (first observation omitted, because of the lag).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># generate the observed dependent variable by adding measurement error</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">ystar</span> <span class="o">+</span> <span class="n">sig</span><span class="o">*</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="n">ylag</span> <span class="o">=</span> <span class="n">lag</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="n">ylag</span> <span class="n">x</span><span class="p">];</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">,</span><span class="o">:</span><span class="p">];</span> <span class="c"># drop first observation, missing due to lag</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># ------------------- GMM TWO-STEP ESTIMATION ------------------------- </span>
+
+<span class="n">theta_trial</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>                     <span class="c"># Trial value of parameter estimators</span>
+<span class="n">moments</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GIVmoments</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>  <span class="c"># Generate the moments function to send as an argument for the gmm()</span>
+
+<span class="c"># -------------- FIRST ESTIMATION ---------------</span>
+<span class="n">thetahat1</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">gmm</span><span class="p">(</span><span class="n">moments</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">I</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">cov</span><span class="p">(</span><span class="n">ms</span><span class="p">));</span> 
+<span class="c"># use  thetahat1 to re-estimate by defining a specific weighting matrix</span>
+
+<span class="c"># -------------- SECOND ESTIMATION --------------</span>
+<span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">gmm</span><span class="p">(</span><span class="n">moments</span><span class="p">,</span> <span class="n">thetahat1</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">W</span><span class="p">);</span>
+
+<span class="c"># Compare the estimators</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">Thetas</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;True value θ_0&quot;</span><span class="p">,</span> <span class="s">&quot;First estimation θ1_hat&quot;</span><span class="p">,</span> <span class="s">&quot;Second estimation θ2_hat&quot;</span><span class="p">],</span> <span class="n">Values</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta</span><span class="p">,</span> <span class="n">thetahat1</span><span class="p">,</span> <span class="n">thetahat</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[0.136205, 0.884571, 0.960155]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[0.137289, 0.884911, 0.957164]</td></tr></tbody></table></div></div>
+</div>
+<p>In this example, both the first estimated <span class="math notranslate nohighlight">\(\theta\)</span> and the second round one are quite close, which means that weighing all the moments equally was satisfactory. Thus, for the sake of efficiency in this particular problem, we could stay with the first estimation.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.6"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.6",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.6'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="ex1.html" title="previous page">Exercise 1</a>
+    <a class='right-next' id="next-link" href="ex3.html" title="next page">Exercise 3</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Naia Ormaza Zulueta<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
