@@ -68,7 +68,7 @@ end
 
 # Set restrictions: 
 R = [0 1 0 0 0]        # CRTS if \beta_q=1
-r = 1
+r = 1;
 
 # ----------------- OLS ESTIMATION -----------------------
 
@@ -77,13 +77,14 @@ r = 1
 # Print results
 if flg
     print("Restricted LS:\n\n")
-    println("Estimators: ",b)
-    println("Standard Errors: ",seb)
+    df = DataFrame(Estimators = ["beta_hat1", "beta_hat2", "beta_hat3", "beta_hat4", "beta_hat5"], Values = b, Standard_Errors=seb)
 else
     print("Non-restricted LS:\n\n")
     println("Estimators: ",b)
     println("Standard Errors: ",seb)
 end
+
+
 
 function TestStatistics(y, x, R, r; silent=false)
     n,k = size(x)

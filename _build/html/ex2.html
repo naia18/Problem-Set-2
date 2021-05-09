@@ -249,10 +249,10 @@
 <p>We have the following model:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
+\begin{gather*}
     y_t^{*}=\alpha+\rho y_{t-1}^{*}+\beta x_t + \epsilon_t \label{eq10}\tag{10} \\
     y_t = y_t^{*}+\upsilon_t
-\end{equation}
+\end{gather*}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\epsilon_{t}\)</span> and <span class="math notranslate nohighlight">\(\upsilon_{t}\)</span> are independent Gaussian white noise errors. Suppose that <span class="math notranslate nohighlight">\(y_{t}^{*}\)</span> is not observed, and instead we observe <span class="math notranslate nohighlight">\(y_{t}\)</span>. We estimate the equation</p>
 <div class="math notranslate nohighlight">
@@ -502,7 +502,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[-0.0397047, 0.872988, 0.948493]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[-0.0394643, 0.873117, 0.948445]</td></tr></tbody></table></div></div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Thetas</th><th>Values</th></tr><tr><th></th><th>String</th><th>Array…</th></tr></thead><tbody><p>3 rows × 2 columns</p><tr><th>1</th><td>True value θ_0</td><td>[0.0 0.9 1.0]</td></tr><tr><th>2</th><td>First estimation θ1_hat</td><td>[-0.0940509, 0.86179, 0.93182]</td></tr><tr><th>3</th><td>Second estimation θ2_hat</td><td>[-0.0924333, 0.862745, 0.925847]</td></tr></tbody></table></div></div>
 </div>
 <p>In this example, both the first estimated <span class="math notranslate nohighlight">\(\theta\)</span> and the second round one are quite close, which means that weighing all the moments equally was satisfactory. Thus, for the sake of efficiency in this particular problem, we could stay with the first estimation.</p>
 </div>
