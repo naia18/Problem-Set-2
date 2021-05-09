@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercise 1 &#8212; Econometrics II - Problem Set 2</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/togglebutton.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exercise 2" href="ex2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logi.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Econometrics II - Problem Set 2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Exercise 1
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ex2.html">
+   Exercise 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ex3.html">
+   Exercise 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ex1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ex1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-estimate-hat-theta">
+   (1. a) Estimate
+   <span class="math notranslate nohighlight">
+    \(\hat{\theta}\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-empirically-prove-consistency-of-hat-theta-by-increasing-the-number-of-n-in-dgp-and-re-estimate">
+   (1. b) Empirically prove consistency of
+   <span class="math notranslate nohighlight">
+    \(\hat{\theta}\)
+   </span>
+   by increasing the number of n in DGP and re-estimate.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-empirically-prove-asymptotic-normality-of-hat-theta-by-repeatedly-generating-data">
+   (1. c) Empirically prove asymptotic normality of
+   <span class="math notranslate nohighlight">
+    \(\hat{\theta}\)
+   </span>
+   by repeatedly generating data.
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exercise-1">
+<h1>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise we are asked to analyse the case of binary logit, when its dependent variables <span class="math notranslate nohighlight">\(y\)</span> can take only two values: 0 or 1. In other words, the logit model the output variable <span class="math notranslate nohighlight">\(y_{i}\)</span> is a Bernoulli random variable (it can take only two values), and:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    P(y=1|x)=p(x,\theta) \label{eq1}\tag{1}
+\end{equation}
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    p(x,\theta)=\frac{1}{1+exp(-x'\theta)} \label{eq2}\tag{2}
+\end{equation}
+\]</div>
+<p>is the logistic function, <span class="math notranslate nohighlight">\(x\)</span> is a matrix of size <span class="math notranslate nohighlight">\(K\times n\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span> is a <span class="math notranslate nohighlight">\(K\times1\)</span> vector of coefficients. Likewise,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    P(y=0|x)=1-p(x,\theta) \label{eq3}\tag{3}
+\end{equation}
+\]</div>
+<p>The vector of coefficients <span class="math notranslate nohighlight">\(\theta\)</span> is the parameter to be estimated by maximum likelihood in this first exercise.</p>
+<p><strong>The LIKELIHOOD</strong></p>
+<p>By using the two probabilities that correspond to the two possible outcomes of our random variable, we can construct a likelihood function of the entire sample (which is equal to the product of the likelihoods of the single observations, since these are considered to be IID):</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    L=\prod_{i=1}^{n} (p(x_i,\theta)\right]^{y_i}\left[1-p(x_i,\theta))^{1-y_i} \label{eq3}\tag{3}
+\end{equation}
+\]</div>
+<p>We take a monotonic transformation, the logarithm of the likelihood, in order to maximize this latter instead:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    \text{ln}L=\sum_{i=1}^{n} y_i\,\text{ln}\left[p(x_i,\theta)\right]+(1-y_i)\,\text{ln}\left[1-p(x_i,\theta)\right] \label{eq4}\tag{4}
+\end{equation}
+\]</div>
+<p>We would like to maximize this log-likelihood function with respect to the parameters (the ones that we are trying to estimate). To this end, we will search for the values of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> numerically.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># MAIN LIBRARIES to use</span>
+<span class="k">using</span> <span class="n">Optim</span>
+<span class="k">using</span> <span class="n">Statistics</span>
+<span class="k">using</span> <span class="n">ForwardDiff</span>
+<span class="k">using</span> <span class="n">Plots</span>
+<span class="k">using</span> <span class="n">LinearAlgebra</span>
+<span class="k">using</span> <span class="n">CSV</span>
+<span class="k">using</span> <span class="n">DataFrames</span>
+<span class="k">using</span> <span class="n">StatsFuns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># MAIN FUNCTIONS: Define the Logit Data Generating Process</span>
+<span class="k">function</span> <span class="n">LogitDGP</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">k</span><span class="o">&gt;</span><span class="mi">1</span> 
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>  <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>     <span class="c"># create the X matrix</span>
+    <span class="k">end</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">./</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">.+</span> <span class="n">exp</span><span class="o">.</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">theta</span><span class="p">))</span> <span class="o">.&gt;</span> <span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>    <span class="c"># compute y values given x and \theta</span>
+    <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+<span class="k">end</span>
+
+<span class="c"># Define the objective function </span>
+<span class="k">function</span> <span class="n">logL</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">./</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">.+</span> <span class="n">exp</span><span class="o">.</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">theta</span><span class="p">))</span>
+    <span class="n">logdensity</span> <span class="o">=</span> <span class="n">y</span><span class="o">.*</span><span class="n">log</span><span class="o">.</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">.+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">.-</span> <span class="n">y</span><span class="p">)</span><span class="o">.*</span><span class="n">log</span><span class="o">.</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">.-</span> <span class="n">p</span><span class="p">)</span>
+<span class="k">end</span>
+
+
+<span class="c"># Unconstrained minimization problem    </span>
+<span class="k">function</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">x</span><span class="p">;</span> <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-08</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Optim</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">LBFGS</span><span class="p">(),</span> 
+                            <span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span>
+                            <span class="n">g_tol</span> <span class="o">=</span> <span class="n">tol</span><span class="p">,</span>
+                            <span class="n">x_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+                            <span class="n">f_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">results</span><span class="o">.</span><span class="n">minimizer</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">minimum</span><span class="p">,</span> <span class="n">Optim</span><span class="o">.</span><span class="n">converged</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="c">#xopt, objvalue, flag = fmincon(obj, x, tol=tol)</span>
+    <span class="c">#return xopt, objvalue, flag</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fminunc (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we have seen, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is an extremum estimator if <span class="math notranslate nohighlight">\(\exists\,Q_n(\theta)\)</span> a scalar objective function such that:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+    \hat{\theta}\,=\,\text{argmax}\quad Q_n(\theta) \label{eq6}\tag{6} \\
+        \text{s.t.}\quad \theta\in\Theta
+\end{equation}
+\end{split}\]</div>
+<p>From the two estimators that we have learned - the M-Estimator and the GMM, this exercise is devoted to the study of  one particular type of M-Estimator, the ML. The main characteristic of the M-Estimators is that they have the sample average as objective function:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    Q_n=\frac{1}{n}\sum_{i=1}^{n}m(x_i;\theta) \label{eq7}\tag{7}
+\end{equation}
+\]</div>
+<p>where, in the case of the ML,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+    m(x_i;\theta)=\text{ln}f(x_i;\theta)\quad\rightarrow\quad Q_n=\frac{1}{n}\sum_{i=1}^{n}\text{ln}f(x_i;\theta) \label{eq8}\tag{8}
+\end{equation}
+\]</div>
+<p>In summary, our job will be to focus on the following optimization problem:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+    \hat{\theta}\,=\,\text{argmax} \frac{1}{n}\sum_{i=1}^{n} \left(y_i\,\text{ln}\left[p(x_i,\theta)\right]+(1-y_i)\,\text{ln}\left[1-p(x_i,\theta)\right]\right) \label{eq9}\tag{9} \\
+        \text{s.t.}\quad \theta\in\Theta
+\end{equation}
+\end{split}\]</div>
+<p>Numerically, we will find the minimum of the function <span class="math notranslate nohighlight">\(-Q_n(\theta)\)</span> making use of the library Optim, the function <em>optimize</em> , which returns, among others, the minimizer of the function. This minimization is carried out by the LBFGS method, which is an optimization algorithm in the family of quasi-Newton methods that approximates the Broyden–Fletcher–Goldfarb–Shanno algorithm (BFGS) using a limited amount of computer memory.</p>
+<div class="section" id="a-estimate-hat-theta">
+<h2>(1. a) Estimate <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>.<a class="headerlink" href="#a-estimate-hat-theta" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Parameters</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span>
+
+<span class="c"># MLE</span>
+<span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">LogitDGP</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>                  <span class="c"># Generate the sample to analyse</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="n">mean</span><span class="p">(</span><span class="n">logL</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>   <span class="c"># Define the objective function </span>
+<span class="n">theta_trial</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>                   <span class="c"># Define a trial value for the parameter to estimate</span>
+<span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">)</span>
+
+<span class="c"># results</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;the true parameters: &quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;the ML estimates: &quot;</span><span class="p">,</span> <span class="n">thetahat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the true parameters: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.75, 0.75]
+the ML estimates: [0.622641203797711, 0.6069557126254318]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-empirically-prove-consistency-of-hat-theta-by-increasing-the-number-of-n-in-dgp-and-re-estimate">
+<h2>(1. b) Empirically prove consistency of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> by increasing the number of n in DGP and re-estimate.<a class="headerlink" href="#b-empirically-prove-consistency-of-hat-theta-by-increasing-the-number-of-n-in-dgp-and-re-estimate" title="Permalink to this headline">¶</a></h2>
+<p>A priori, by increasing the size of our sample for estimation in the DGP and by re-estimating, we should verify that the value of the estimates converges in probability to the true value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># New sample size (larger)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span>
+
+<span class="c"># MLE re-optimization</span>
+<span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">LogitDGP</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>                  <span class="c"># Generate the sample to analyse</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="n">mean</span><span class="p">(</span><span class="n">logL</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>   <span class="c"># Define the objective function </span>
+<span class="n">theta_trial</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>                   <span class="c"># Define a trial value for the parameter to estimate</span>
+<span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">)</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta</span><span class="o">.-</span><span class="n">thetahat</span><span class="p">)</span><span class="o">./</span><span class="n">theta</span>
+
+<span class="c"># results</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;the true parameters: &quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;the ML estimates: &quot;</span><span class="p">,</span> <span class="n">thetahat</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;the error of estimation: &quot;</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the true parameters: [0.75, 0.75]
+the ML estimates: [0.7523869945837304, 0.7528848209336915]
+the error of estimation: [-0.003182659444973831, -0.0038464279115886235]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c-empirically-prove-asymptotic-normality-of-hat-theta-by-repeatedly-generating-data">
+<h2>(1. c) Empirically prove asymptotic normality of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> by repeatedly generating data.<a class="headerlink" href="#c-empirically-prove-asymptotic-normality-of-hat-theta-by-repeatedly-generating-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">reps</span>
+    <span class="c"># MLE</span>
+    <span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">LogitDGP</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>                  <span class="c"># Generate the sample to analyse</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="n">mean</span><span class="p">(</span><span class="n">logL</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>   <span class="c"># Define the objective function </span>
+    <span class="n">theta_trial</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>                   <span class="c"># Define a trial value for the parameter to estimate   </span>
+    <span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">)</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">thetahat</span> <span class="o">.-</span> <span class="n">theta</span><span class="p">)</span><span class="o">&#39;</span><span class="p">)</span>
+<span class="k">end</span>    
+<span class="n">histogram</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="n">nbins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;theta_0&quot;</span> <span class="s">&quot;theta_1&quot;</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Histogram of the estimates&quot;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ex1_9_0.svg" src="_images/ex1_9_0.svg" /></div>
+</div>
+<p>The greater the sample size, the more it will resemble to a normal distribution: we are dealing with asymptotic values, which are defined when the sample size tends to very large numbers: <span class="math notranslate nohighlight">\(n\to\infty\)</span>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.6"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.6",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.6'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='right-next' id="next-link" href="ex2.html" title="next page">Exercise 2</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Naia Ormaza Zulueta<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
