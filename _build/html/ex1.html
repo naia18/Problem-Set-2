@@ -256,14 +256,14 @@
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-    L=\prod_{i=1}^{n} (p(x_i,\theta)\right]^{y_i}\left[1-p(x_i,\theta))^{1-y_i} \label{eq3}\tag{3}
+    L=\prod_{i=1}^{n} \left[p(x_i,\theta)\right]^{y_i}\left[1-p(x_i,\theta)\right]^{1-y_i} \label{eq4}\tag{4}
 \end{equation}
 \]</div>
 <p>We take a monotonic transformation, the logarithm of the likelihood, in order to maximize this latter instead:</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-    \text{ln}L=\sum_{i=1}^{n} y_i\,\text{ln}\left[p(x_i,\theta)\right]+(1-y_i)\,\text{ln}\left[1-p(x_i,\theta)\right] \label{eq4}\tag{4}
+    \text{ln}L=\sum_{i=1}^{n} y_i\,\text{ln}\left[p(x_i,\theta)\right]+(1-y_i)\,\text{ln}\left[1-p(x_i,\theta)\right] \label{eq5}\tag{5}
 \end{equation}
 \]</div>
 <p>We would like to maximize this log-likelihood function with respect to the parameters (the ones that we are trying to estimate). To this end, we will search for the values of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> numerically.</p>
@@ -325,10 +325,10 @@
 <p>As we have seen, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is an extremum estimator if <span class="math notranslate nohighlight">\(\exists\,Q_n(\theta)\)</span> a scalar objective function such that:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
+\begin{gather*}
     \hat{\theta}\,=\,\text{argmax}\quad Q_n(\theta) \label{eq6}\tag{6} \\
         \text{s.t.}\quad \theta\in\Theta
-\end{equation}
+\end{gather*}
 \end{split}\]</div>
 <p>From the two estimators that we have learned - the M-Estimator and the GMM, this exercise is devoted to the study of  one particular type of M-Estimator, the ML. The main characteristic of the M-Estimators is that they have the sample average as objective function:</p>
 <div class="math notranslate nohighlight">
@@ -347,10 +347,10 @@
 <p>In summary, our job will be to focus on the following optimization problem:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
+\begin{gather*}
     \hat{\theta}\,=\,\text{argmax} \frac{1}{n}\sum_{i=1}^{n} \left(y_i\,\text{ln}\left[p(x_i,\theta)\right]+(1-y_i)\,\text{ln}\left[1-p(x_i,\theta)\right]\right) \label{eq9}\tag{9} \\
         \text{s.t.}\quad \theta\in\Theta
-\end{equation}
+\end{gather*}
 \end{split}\]</div>
 <p>Numerically, we will find the minimum of the function <span class="math notranslate nohighlight">\(-Q_n(\theta)\)</span> making use of the library Optim, the function <em>optimize</em> , which returns, among others, the minimizer of the function. This minimization is carried out by the LBFGS method, which is an optimization algorithm in the family of quasi-Newton methods that approximates the Broyden–Fletcher–Goldfarb–Shanno algorithm (BFGS) using a limited amount of computer memory.</p>
 <div class="section" id="a-estimate-hat-theta">
@@ -378,7 +378,7 @@
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.75, 0.75]
-the ML estimates: [0.622641203797711, 0.6069557126254318]
+the ML estimates: [0.7622461296624259, 0.7059345911050713]
 </pre></div>
 </div>
 </div>
@@ -409,8 +409,8 @@ the ML estimates: [0.622641203797711, 0.6069557126254318]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the true parameters: [0.75, 0.75]
-the ML estimates: [0.7523869945837304, 0.7528848209336915]
-the error of estimation: [-0.003182659444973831, -0.0038464279115886235]
+the ML estimates: [0.7360467624420689, 0.7382415741515211]
+the error of estimation: [0.01860431674390813, 0.015677901131305145]
 </pre></div>
 </div>
 </div>
