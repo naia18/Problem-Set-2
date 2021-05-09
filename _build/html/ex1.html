@@ -229,14 +229,14 @@
                 
   <div class="section" id="exercise-1">
 <h1>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h1>
-<p>In this exercise we are asked to analyse the case of binary logit, when its dependent variables <span class="math notranslate nohighlight">\(y\)</span> can take only two values: 0 or 1. In other words, the logit model the output variable <span class="math notranslate nohighlight">\(y_{i}\)</span> is a Bernoulli random variable (it can take only two values), and:</p>
+<p>In this exercise we are asked to analyse the case of binary logit, when its dependent variable <span class="math notranslate nohighlight">\(y\)</span> can take only two values: 0 or 1 (Bernoulli random variable), where:</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
     P(y=1|x)=p(x,\theta) \label{eq1}\tag{1}
 \end{equation}
 \]</div>
-<p>where</p>
+<p>and</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
@@ -275,6 +275,7 @@
 <span class="k">using</span> <span class="n">Plots</span>
 <span class="k">using</span> <span class="n">DataFrames</span>
 <span class="k">using</span> <span class="n">StatsFuns</span>
+<span class="k">using</span> <span class="n">LaTeXStrings</span>     <span class="c"># To write in Latex typesetting on the plots</span>
 </pre></div>
 </div>
 </div>
@@ -371,7 +372,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.590853</td><td>0.212196</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.693891</td><td>0.0748117</td></tr></tbody></table></div></div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.773246</td><td>0.030995</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.732269</td><td>0.023641</td></tr></tbody></table></div></div>
 </div>
 </div>
 <div class="section" id="b-empirically-prove-consistency-of-hat-theta-by-increasing-the-number-of-n-in-dgp-and-re-estimate">
@@ -396,7 +397,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.753226</td><td>0.00430124</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.742414</td><td>0.010115</td></tr></tbody></table></div></div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.73865</td><td>0.0151339</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.765861</td><td>0.0211477</td></tr></tbody></table></div></div>
 </div>
 </div>
 <div class="section" id="c-empirically-prove-asymptotic-normality-of-hat-theta-by-repeatedly-generating-data">
@@ -416,7 +417,8 @@
     <span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">)</span>
     <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">thetahat</span> <span class="o">.-</span> <span class="n">theta</span><span class="p">)</span><span class="o">&#39;</span><span class="p">)</span>
 <span class="k">end</span>    
-<span class="n">histogram</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="n">nbins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;theta_0&quot;</span> <span class="s">&quot;theta_1&quot;</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Histogram of the estimates&quot;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">tit</span> <span class="o">=</span> <span class="n">LaTeXString</span><span class="p">(</span><span class="s">&quot;Histogram of the estimates&quot;</span><span class="p">)</span>
+<span class="n">histogram</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="n">nbins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="n">L</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">heta_0&quot;</span> <span class="n">L</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">heta_1&quot;</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="n">tit</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
 </pre></div>
 </div>

@@ -4,6 +4,7 @@ using Statistics
 using Plots
 using DataFrames
 using StatsFuns
+using LaTeXStrings     # To write in Latex typesetting on the plots
 
 # MAIN FUNCTIONS: Define the Logit Data Generating Process
 function LogitDGP(n, theta)
@@ -77,7 +78,8 @@ for i = 1:reps
     thetahat, junk, junk = fminunc(obj, theta_trial)
     results[i,:] = sqrt(n)*((thetahat .- theta)')
 end    
-histogram(results,nbins=50,label=["theta_0" "theta_1"],title="Histogram of the estimates",alpha=0.7)
+tit = LaTeXString("Histogram of the estimates")
+histogram(results,nbins=50,label=[L"\theta_0" L"\theta_1"],title=tit,alpha=0.7)
 plot!(size=(500,300))
 
 
