@@ -366,10 +366,12 @@
 <span class="n">obj</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="n">mean</span><span class="p">(</span><span class="n">logL</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>   <span class="c"># Define the objective function </span>
 <span class="n">theta_trial</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>                   <span class="c"># Define a trial value for the parameter to estimate</span>
 <span class="n">thetahat</span><span class="p">,</span> <span class="n">junk</span><span class="p">,</span> <span class="n">junk</span> <span class="o">=</span> <span class="n">fminunc</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">theta_trial</span><span class="p">)</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta</span><span class="o">.-</span><span class="n">thetahat</span><span class="p">)</span><span class="o">./</span><span class="n">theta</span>
 
 <span class="c"># results</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;the true parameters: &quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;the ML estimates: &quot;</span><span class="p">,</span> <span class="n">thetahat</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;the error of estimation: &quot;</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -378,7 +380,8 @@
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.75, 0.75]
-the ML estimates: [0.7622461296624259, 0.7059345911050713]
+the ML estimates: [0.7145324150871808, 0.6315728199016203]
+the error of estimation: [0.047290113217092276, 0.1579029067978396]
 </pre></div>
 </div>
 </div>
@@ -386,7 +389,7 @@ the ML estimates: [0.7622461296624259, 0.7059345911050713]
 </div>
 <div class="section" id="b-empirically-prove-consistency-of-hat-theta-by-increasing-the-number-of-n-in-dgp-and-re-estimate">
 <h2>(1. b) Empirically prove consistency of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> by increasing the number of n in DGP and re-estimate.<a class="headerlink" href="#b-empirically-prove-consistency-of-hat-theta-by-increasing-the-number-of-n-in-dgp-and-re-estimate" title="Permalink to this headline">¶</a></h2>
-<p>A priori, by increasing the size of our sample for estimation in the DGP and by re-estimating, we should verify that the value of the estimates converges in probability to the true value:</p>
+<p>A priori, by increasing the size of our sample for estimation in the DGP and by re-estimating, we should verify that the value of the estimates converges in probability to the true value. I added an extra variable <em>errors</em> to see how the estimation error decreases as <span class="math notranslate nohighlight">\(n\rightarrow \infty\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># New sample size (larger)</span>
@@ -409,8 +412,8 @@ the ML estimates: [0.7622461296624259, 0.7059345911050713]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the true parameters: [0.75, 0.75]
-the ML estimates: [0.7360467624420689, 0.7382415741515211]
-the error of estimation: [0.01860431674390813, 0.015677901131305145]
+the ML estimates: [0.7282458982437631, 0.7875604919150628]
+the error of estimation: [0.02900546900831591, -0.050080655886750446]
 </pre></div>
 </div>
 </div>
