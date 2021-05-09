@@ -1,10 +1,7 @@
-# MAIN LIBRARIES to use
+# MAIN LIBRARIES to use in Ex. 1
 using Optim
 using Statistics
-using ForwardDiff
 using Plots
-using LinearAlgebra
-using CSV
 using DataFrames
 using StatsFuns
 

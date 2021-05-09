@@ -269,13 +269,10 @@
 <p>We would like to maximize this log-likelihood function with respect to the parameters (the ones that we are trying to estimate). To this end, we will search for the values of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> numerically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># MAIN LIBRARIES to use</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># MAIN LIBRARIES to use in Ex. 1</span>
 <span class="k">using</span> <span class="n">Optim</span>
 <span class="k">using</span> <span class="n">Statistics</span>
-<span class="k">using</span> <span class="n">ForwardDiff</span>
 <span class="k">using</span> <span class="n">Plots</span>
-<span class="k">using</span> <span class="n">LinearAlgebra</span>
-<span class="k">using</span> <span class="n">CSV</span>
 <span class="k">using</span> <span class="n">DataFrames</span>
 <span class="k">using</span> <span class="n">StatsFuns</span>
 </pre></div>
@@ -374,7 +371,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.589673</td><td>0.213769</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.805368</td><td>0.0738239</td></tr></tbody></table></div></div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.590853</td><td>0.212196</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.693891</td><td>0.0748117</td></tr></tbody></table></div></div>
 </div>
 </div>
 <div class="section" id="b-empirically-prove-consistency-of-hat-theta-by-increasing-the-number-of-n-in-dgp-and-re-estimate">
@@ -399,7 +396,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.733295</td><td>0.0222736</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.757391</td><td>0.0098542</td></tr></tbody></table></div></div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>Parameters</th><th>True_Parameters</th><th>ML_estimates</th><th>Estimation_errors</th></tr><tr><th></th><th>String</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>2 rows × 4 columns</p><tr><th>1</th><td>Theta1</td><td>0.75</td><td>0.753226</td><td>0.00430124</td></tr><tr><th>2</th><td>Theta2</td><td>0.75</td><td>0.742414</td><td>0.010115</td></tr></tbody></table></div></div>
 </div>
 </div>
 <div class="section" id="c-empirically-prove-asymptotic-normality-of-hat-theta-by-repeatedly-generating-data">

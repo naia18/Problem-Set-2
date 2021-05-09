@@ -231,8 +231,6 @@
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># MAIN LIBRARIES to use</span>
 <span class="k">using</span> <span class="n">Optim</span>
 <span class="k">using</span> <span class="n">Statistics</span>
-<span class="k">using</span> <span class="n">ForwardDiff</span>
-<span class="k">using</span> <span class="n">Plots</span>
 <span class="k">using</span> <span class="n">LinearAlgebra</span>
 <span class="k">using</span> <span class="n">CSV</span>
 <span class="k">using</span> <span class="n">DataFrames</span>
@@ -342,7 +340,7 @@
     <span class="n">xe</span> <span class="o">=</span> <span class="n">x</span><span class="o">.*</span><span class="nb">e</span>
     <span class="n">varb</span> <span class="o">=</span> <span class="n">xx_inv</span><span class="o">*</span><span class="n">xe</span><span class="o">&#39;</span><span class="n">xe</span><span class="o">*</span><span class="n">xx_inv</span>
 
-    <span class="c"># restricted LS</span>
+    <span class="c"># Restricted LS</span>
     <span class="k">if</span> <span class="n">R</span> <span class="o">!=</span><span class="p">[]</span>
         <span class="n">varb</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">varb</span><span class="o">*</span><span class="n">A</span><span class="o">&#39;</span>
     <span class="k">end</span>
@@ -383,8 +381,7 @@
     <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">Estimators</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;beta_hat1&quot;</span><span class="p">,</span> <span class="s">&quot;beta_hat2&quot;</span><span class="p">,</span> <span class="s">&quot;beta_hat3&quot;</span><span class="p">,</span> <span class="s">&quot;beta_hat4&quot;</span><span class="p">,</span> <span class="s">&quot;beta_hat5&quot;</span><span class="p">],</span> <span class="n">Values</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">Standard_Errors</span><span class="o">=</span><span class="n">seb</span><span class="p">)</span>
 <span class="k">else</span>
     <span class="n">print</span><span class="p">(</span><span class="s">&quot;Non-restricted LS:</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Estimators: &quot;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Standard Errors: &quot;</span><span class="p">,</span><span class="n">seb</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">Estimators</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;beta_hat1&quot;</span><span class="p">,</span> <span class="s">&quot;beta_hat2&quot;</span><span class="p">,</span> <span class="s">&quot;beta_hat3&quot;</span><span class="p">,</span> <span class="s">&quot;beta_hat4&quot;</span><span class="p">,</span> <span class="s">&quot;beta_hat5&quot;</span><span class="p">],</span> <span class="n">Values</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">Standard_Errors</span><span class="o">=</span><span class="n">seb</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 </div>

@@ -1,8 +1,6 @@
 # MAIN LIBRARIES to use
 using Optim
 using Statistics
-using ForwardDiff
-using Plots
 using LinearAlgebra
 using CSV
 using DataFrames
@@ -54,7 +52,7 @@ function ols(y::Array{Float64}, x::Array{Float64,2}; R=[], r=[], vc="white", sil
     xe = x.*e
     varb = xx_inv*xe'xe*xx_inv
 
-    # restricted LS
+    # Restricted LS
     if R !=[]
         varb = A*varb*A'
     end
@@ -80,8 +78,7 @@ if flg
     df = DataFrame(Estimators = ["beta_hat1", "beta_hat2", "beta_hat3", "beta_hat4", "beta_hat5"], Values = b, Standard_Errors=seb)
 else
     print("Non-restricted LS:\n\n")
-    println("Estimators: ",b)
-    println("Standard Errors: ",seb)
+    df = DataFrame(Estimators = ["beta_hat1", "beta_hat2", "beta_hat3", "beta_hat4", "beta_hat5"], Values = b, Standard_Errors=seb)
 end
 
 

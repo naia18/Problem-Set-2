@@ -1,10 +1,8 @@
-# MAIN LIBRARIES to use
+# MAIN LIBRARIES to use in Ex. 2
 using Optim
 using Statistics
-using ForwardDiff
 using Plots
 using LinearAlgebra
-using CSV
 using DataFrames
 using StatsFuns
 
@@ -65,11 +63,9 @@ function gmm(moments, theta, data, weight)
     obj = theta -> ((m(theta))'weight*m(theta))
     # Minimization
     thetahat, objvalue, converged = fminunc(obj, theta)
-    # Derivative of average moments
-    D = (ForwardDiff.jacobian(m, vec(thetahat)))' 
     # moment contributions at estimate
     mc_thetahat = moments(thetahat,data)
-    return thetahat, objvalue, D, mc_thetahat, converged
+    return thetahat, objvalue, mc_thetahat, converged
 end
 
 # Unconstrained minimization problem    
@@ -112,12 +108,12 @@ theta_trial = [1.0, 0.5, 0.5]                     # Trial value of parameter est
 moments = (theta,data) -> GIVmoments(theta,data)  # Generate the moments function to send as an argument for the gmm()
 
 # -------------- FIRST ESTIMATION ---------------
-thetahat1, junk, junk, ms, junk = gmm(moments, theta_trial, data, I(4));
+thetahat1, objval, ms, converged = gmm(moments, theta_trial, data, I(4));
 W = inv(cov(ms)); 
 # use  thetahat1 to re-estimate by defining a specific weighting matrix
 
 # -------------- SECOND ESTIMATION --------------
-thetahat, junk, junk, ms, junk = gmm(moments, thetahat1, data, W);
+thetahat, objval, ms, converged = gmm(moments, thetahat1, data, W);
 
 # Compare the estimators
 df = DataFrame(Thetas = ["True value θ_0", "First estimation θ1_hat", "Second estimation θ2_hat"], Values = [theta, thetahat1, thetahat])
